@@ -3,22 +3,15 @@
   #include <PubSubClient.h>
   #include <WiFiClientSecure.h>
   #include <time.h>
-//  #include <TZ.h>
-//  #include <FS.h>
-//  #include <LittleFS.h>
-//  #include <CertStoreBearSSL.h>
-
-
+  
   //...........................................VARIABLES PARA EL BROKER...........................................\\
-  WiFiClient wifiClient;
-  PubSubClient mqttClient(wifiClient); 
+  //WiFiClient wifiClient;
+  //PubSubClient client(wifiClient); 
   char *mqttServer = "79267f99bb244d74894f7be09778e576.s1.eu.hivemq.cloud";
   int mqttPort = 883;
-  const char mqtt_username = "inb2005";
-  const char mqtt_password = "nacho2005";
+  char mqtt_username = "inb2005";
+  char mqtt_password = "nacho2005";
 
-  
-  
   //...........................................VARIABLES PARA WIFI...........................................\\
   const char* ssid = "IoT";
   const char* password = "mandalegas";
@@ -32,7 +25,6 @@
     // set the callback function
     mqttClient.setCallback(callback);
   }
-
 
   //...........................................FUNCION RECONECTAR SERVER...........................................\\
   void callback(char* topic, byte* payload, unsigned int length) 
@@ -65,7 +57,7 @@
 
       else 
       {
-        Serial.print(“failed, rc=”);
+        Serial.print("failed, rc=");
         Serial.print(client.state());
         Serial.println(" try again in 5 seconds"); // Wait 5 seconds before retrying
         delay(5000);
