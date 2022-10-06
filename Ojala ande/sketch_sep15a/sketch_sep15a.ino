@@ -91,7 +91,7 @@ void loop() {
   if (!client->connected()) {
     reconnect();
   }
-  client.loop();
+  
 
   unsigned long now = millis();
   if (now - lastMsg > 2000) {
