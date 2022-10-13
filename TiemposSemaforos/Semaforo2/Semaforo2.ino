@@ -1,9 +1,6 @@
-#define V1 2
-#define A1 3
-#define R1 4
 #define V2 5
-#define A2 6
-#define R2 7
+#define A2 18
+#define R2 19
 
 #define Autos1 6
 #define Autos2 9
@@ -11,11 +8,8 @@
 void setup() 
 {
   Serial.begin(115200);
-  pinMode(V1, OUTPUT);
   pinMode(V2, OUTPUT);
-  pinMode(A1, OUTPUT);
   pinMode(A2, OUTPUT);
-  pinMode(R1, OUTPUT);
   pinMode(R2, OUTPUT);
 }
 
@@ -24,7 +18,7 @@ void loop()
   //SEMAFORO 2
   int AutosTotales = Autos1 - Autos2;
   // CASO NORMAL SEMAFORO 2
-  if (AutosTotales > -2 && AutosTotales < 2)
+  if (AutosTotales >= -2 && AutosTotales <= 2)
   {
     Serial.print("Caso normal");
     digitalWrite(V2, LOW);
@@ -39,7 +33,7 @@ void loop()
   }
 
   // POCO FAVORABLE PARA SEMAFORO 2
-  if (AutosTotales >= 2 && AutosTotales < 5)
+  else if (AutosTotales > 2 && AutosTotales <= 5)
   {
     Serial.print("Caso 2");
     digitalWrite(V2, LOW);
@@ -54,7 +48,7 @@ void loop()
   }
 
   // MUY POCO FAVORABLE PARA SEMAFORO 2
-  else if (AutosTotales >= 5)
+  else if (AutosTotales > 5)
   {
     Serial.print("Caso 3");
     digitalWrite(V2, LOW);
@@ -69,7 +63,7 @@ void loop()
   }
 
   // FAVORABLE PARA SEMAFORO 2
-  else if (AutosTotales > -5 && AutosTotales <= -2)
+  else if (AutosTotales >= -5 && AutosTotales <-2)
   {
     Serial.print("Caso 4");
     digitalWrite(V2, LOW);
@@ -84,7 +78,7 @@ void loop()
   }
 
   //MUY FAVORABLE PARA SEMAFORO 1
-  else if (AutosTotales <= -5)
+  else if (AutosTotales < -5)
   {
     Serial.print("Caso 5");
     digitalWrite(V2, LOW);
