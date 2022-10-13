@@ -1,15 +1,16 @@
-#define V1 1
-#define A1 2
-#define R1 3
-#define V2 4
-#define A2 5
-#define R2 6
+#define V1 2
+#define A1 3
+#define R1 4
+#define V2 5
+#define A2 6
+#define R2 7
 
 #define Autos1 6
-#define Autos2 4
+#define Autos2 9
 
 void setup() 
 {
+  Serial.begin(115200);
   pinMode(V1, OUTPUT);
   pinMode(V2, OUTPUT);
   pinMode(A1, OUTPUT);
@@ -25,70 +26,75 @@ void loop()
   // CASO NORMAL SEMAFORO 2
   if (AutosTotales > -2 && AutosTotales < 2)
   {
-    digitalWrite(V1, LOW);
-    digitalWrite(R1, HIGH);
+    Serial.print("Caso normal");
+    digitalWrite(V2, LOW);
+    digitalWrite(R2, HIGH);
     delay(28000);
-    digitalWrite(R1, LOW);
-    digitalWrite(A1, HIGH);
+    digitalWrite(R2, LOW);
+    digitalWrite(A2, HIGH);
     delay(4000);
-    digitalWrite(A1, LOW);
-    digitalWrite(V1, HIGH);
+    digitalWrite(A2, LOW);
+    digitalWrite(V2, HIGH);
     delay(28000);
   }
 
   // POCO FAVORABLE PARA SEMAFORO 2
-  else if (AutosTotales > 2 && AutosTotales < 5)
+  if (AutosTotales >= 2 && AutosTotales < 5)
   {
-    digitalWrite(V1, LOW);
-    digitalWrite(R1, HIGH);
+    Serial.print("Caso 2");
+    digitalWrite(V2, LOW);
+    digitalWrite(R2, HIGH);
     delay(34000);
-    digitalWrite(R1, LOW);
-    digitalWrite(A1, HIGH);
+    digitalWrite(R2, LOW);
+    digitalWrite(A2, HIGH);
     delay(4000);
-    digitalWrite(A1, LOW);
-    digitalWrite(V1, HIGH);
+    digitalWrite(A2, LOW);
+    digitalWrite(V2, HIGH);
     delay(22000);
   }
 
   // MUY POCO FAVORABLE PARA SEMAFORO 2
-  else if (AutosTotales > 5)
+  else if (AutosTotales >= 5)
   {
-    digitalWrite(V1, LOW);
-    digitalWrite(R1, HIGH);
+    Serial.print("Caso 3");
+    digitalWrite(V2, LOW);
+    digitalWrite(R2, HIGH);
     delay(42000);
-    digitalWrite(R1, LOW);
-    digitalWrite(A1, HIGH);
+    digitalWrite(R2, LOW);
+    digitalWrite(A2, HIGH);
     delay(4000);
-    digitalWrite(A1, LOW);
-    digitalWrite(V1, HIGH);
+    digitalWrite(A2, LOW);
+    digitalWrite(V2, HIGH);
     delay(14000);
   }
 
   // FAVORABLE PARA SEMAFORO 2
-  else if (AutosTotales > -5 && AutosTotales < -2)
+  else if (AutosTotales > -5 && AutosTotales <= -2)
   {
-    digitalWrite(V1, LOW);
-    digitalWrite(R1, HIGH);
+    Serial.print("Caso 4");
+    digitalWrite(V2, LOW);
+    digitalWrite(R2, HIGH);
     delay(22000);
-    digitalWrite(R1, LOW);
-    digitalWrite(A1, HIGH);
+    digitalWrite(R2, LOW);
+    digitalWrite(A2, HIGH);
     delay(4000);
-    digitalWrite(A1, LOW);
-    digitalWrite(V1, HIGH);
+    digitalWrite(A2, LOW);
+    digitalWrite(V2, HIGH);
     delay(34000);
   }
 
   //MUY FAVORABLE PARA SEMAFORO 1
-  else if (AutosTotales < -5)
+  else if (AutosTotales <= -5)
   {
-    digitalWrite(V1, LOW);
-    digitalWrite(R1, HIGH);
+    Serial.print("Caso 5");
+    digitalWrite(V2, LOW);
+    digitalWrite(R2, HIGH);
     delay(14000);
-    digitalWrite(R1, LOW);
-    digitalWrite(A1, HIGH);
+    digitalWrite(R2, LOW);
+    digitalWrite(A2, HIGH);
     delay(4000);
-    digitalWrite(A1, LOW);
-    digitalWrite(V1, HIGH);
+    digitalWrite(A2, LOW);
+    digitalWrite(V2, HIGH);
     delay(42000);
   }
 
