@@ -1,6 +1,3 @@
-#define V1 2
-#define A1 3
-#define R1 4
 #define V2 5
 #define A2 6
 #define R2 7
@@ -11,11 +8,8 @@
 void setup() 
 {
   Serial.begin(115200);
-  pinMode(V1, OUTPUT);
   pinMode(V2, OUTPUT);
-  pinMode(A1, OUTPUT);
   pinMode(A2, OUTPUT);
-  pinMode(R1, OUTPUT);
   pinMode(R2, OUTPUT);
 }
 
