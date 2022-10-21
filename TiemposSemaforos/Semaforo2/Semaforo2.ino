@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+#define V2 14
+#define A2 15
+#define R2 13 
+=======
 #define V2 5
-#define A2 18
-#define R2 19
+#define A2 6
+#define R2 7
+>>>>>>> b93787a0376b3b474621a4f0ac7f089fe47ace8e
 
 #define Autos1 6
 #define Autos2 9
