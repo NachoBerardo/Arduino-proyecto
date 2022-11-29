@@ -14,8 +14,8 @@
 
 #define AIO_SERVER      "io.adafruit.com" //"52.54.110.50"
 #define AIO_SERVERPORT  1883
-#define AIO_USERNAME  "inb2005"
-#define AIO_KEY       "aio_gQQk42g7FtmZs4uaAoySrtqF08DB"
+#define AIO_USERNAME  "Spotlight"
+#define AIO_KEY       "aio_unIr80eqI7myzWHJaoskQawPUkHI"
 
 /************ Global State (you don't need to change this!) ******************/
 
@@ -42,8 +42,8 @@ Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO
 /****************************** Feeds ***************************************/
 
 // Setup a feed called 'salidaDigital' for subscribing to changes to the button
-Adafruit_MQTT_Subscribe FeedSemaforo1 = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/autos", MQTT_QOS_1);
-Adafruit_MQTT_Subscribe FeedSemaforo2 = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/autos2", MQTT_QOS_1);
+Adafruit_MQTT_Subscribe FeedSemaforo1 = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/semaforo1", MQTT_QOS_1);
+Adafruit_MQTT_Subscribe FeedSemaforo2 = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/semaforo2", MQTT_QOS_1);
 
 /*************************** Sketch Code ************************************/
 void Semaforo1callback(char *data, uint16_t len) {
